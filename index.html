@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Conformidade Regulatória e LGPD: guia de estudo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--bg:#f5f8fa;--card:#fff;--ink:#16222e;--mute:#556473;--line:#d5dee6;--pri:#0b6e6e;--pri-bg:#dff2f1;--warn:#9a4a00;--warn-bg:#fff0dc;--head:#0f2a3d;--head-ink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1720;--card:#16222e;--ink:#e6edf3;--mute:#9fb0be;--line:#2b3b4a;--pri:#4fd1c5;--pri-bg:#12363a;--warn:#ffb86b;--warn-bg:#3a2a14;--head:#0a1118;}}
+:root[data-theme="dark"]{--bg:#0e1720;--card:#16222e;--ink:#e6edf3;--mute:#9fb0be;--line:#2b3b4a;--pri:#4fd1c5;--pri-bg:#12363a;--warn:#ffb86b;--warn-bg:#3a2a14;--head:#0a1118}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;line-height:1.15;margin:0 0 .5em}
+header{background:var(--head);color:var(--head-ink);padding:48px 20px 40px}
+header div,main,nav div{max-width:920px;margin:0 auto}
+h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:800}
+header p{max-width:60ch;color:#c5d5e0;margin:0}
+nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+nav div{display:flex;gap:4px;overflow-x:auto;padding:8px 12px}
+nav a{white-space:nowrap;padding:6px 12px;border-radius:99px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.9rem}
+nav a:hover,nav a:focus-visible{background:var(--pri-bg);outline:none}
+main{padding:8px 20px 60px}
+section{padding-top:36px}
+h2{font-size:1.7rem;font-weight:800}
+h3{font-size:1.1rem;margin-top:1.4em}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.grid .card{margin:0}
+.tw{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--pri-bg);font-weight:600}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;min-width:150px}
+.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+.steps li{counter-increment:s;position:relative;padding:12px 16px 12px 56px;background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:8px}
+.steps li::before{content:counter(s);position:absolute;left:14px;top:10px;width:30px;height:30px;border-radius:50%;background:var(--pri);color:var(--bg);display:grid;place-items:center;font-weight:800;font-family:"Bricolage Grotesque",sans-serif}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;list-style:none;margin:10px 0}
+.chips li{background:var(--pri-bg);border-radius:99px;padding:4px 14px;font-weight:600;font-size:.92rem}
+.chips.bases li{background:var(--card);border:1px solid var(--line)}
+.chips.bases li:first-child{border-color:var(--pri)}
+.clock{display:flex;flex-wrap:wrap;align-items:center;gap:20px;background:var(--head);color:var(--head-ink);border-radius:14px;padding:24px;margin:14px 0}
+.clock b{font:800 clamp(3.5rem,14vw,6rem)/1 "Bricolage Grotesque",sans-serif;color:#7be0d6}
+.clock span{flex:1;min-width:220px;color:#d5e3ec}
+.note{background:var(--warn-bg);border-left:4px solid var(--warn);padding:12px 16px;border-radius:6px;margin:14px 0}
+.note b{color:var(--warn)}
+ul.ck{padding-left:0;list-style:none}
+ul.ck li{padding-left:28px;position:relative;margin:6px 0}
+ul.ck li::before{content:"✓";position:absolute;left:4px;color:var(--pri);font-weight:800}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:8px 0}
+summary{cursor:pointer;padding:12px 16px;font-weight:600}
+summary:focus-visible{outline:2px solid var(--pri);border-radius:10px}
+details p{margin:0;padding:0 16px 14px;color:var(--mute)}
+details[open] summary{color:var(--pri)}
+footer{font-size:.9rem;color:var(--mute)}
+@media print{nav{display:none}header{color:#000;background:none}}
+</style>
+</head>
+<body>
+<header><div>
+<h1>Conformidade Regulatória e LGPD</h1>
+<p>Guia de estudo: o que é conformidade, quais leis valem no Brasil, como a LGPD funciona e o que muda para quem trabalha com TI e segurança da informação.</p>
+</div></header>
+<nav aria-label="Seções"><div>
+<a href="#conformidade">Conformidade</a><a href="#leis">Leis</a><a href="#lgpd">LGPD</a><a href="#incidentes">Incidentes</a><a href="#sancoes">Sanções</a><a href="#novidades">2026</a><a href="#padroes">Padrões</a><a href="#pratica">Prática</a>
+</div></nav>
+<main>
+
+<section id="conformidade">
+<h2>1. O que é conformidade (compliance)</h2>
+<p>É a organização cumprir as <b>leis do país</b>, os <b>regulamentos externos</b>, os <b>contratos</b> e as suas <b>próprias políticas internas</b>. Serve para evitar multas e sanções, proteger a reputação e garantir a continuidade do negócio.</p>
+<ol class="steps">
+<li><b>Política.</b> A organização declara por escrito que cumprirá a legislação e os regulamentos.</li>
+<li><b>Procedimentos, diretrizes e ferramentas.</b> Traduzem a lei em rotinas que os funcionários conseguem aplicar.</li>
+<li><b>Análise de riscos.</b> Identifica os riscos, define níveis de segurança e escolhe medidas físicas, técnicas e organizacionais proporcionais.</li>
+<li><b>Apoio jurídico.</b> Conformidade é campo especializado: TI e segurança trabalham junto com advogados.</li>
+</ol>
+<div class="grid">
+<div class="card"><b>Multinacionais</b><br>Precisam de uma política geral de alto nível e documentos derivados adaptados à lei de cada país, sobretudo em privacidade.</div>
+<div class="card"><b>Propriedade intelectual</b><br>Licenças de software, código aberto, marcas e patentes também são conformidade, com política e medidas disciplinares.</div>
+<div class="card"><b>Elo mais fraco</b><br>A segurança vale tanto quanto o ponto mais fraco: uma pessoa, um fornecedor ou um auditor externo com acesso excessivo.</div>
+</div>
+</section>
+
+<section id="leis">
+<h2>2. Leis brasileiras que aparecem na rotina de TI</h2>
+<p>O Brasil não tem uma lei única de segurança da informação. A conformidade vem de um conjunto de normas.</p>
+<div class="tw"><table>
+<tr><th>Norma</th><th>Tema</th><th>O que o profissional precisa saber</th></tr>
+<tr><td>Constituição, art. 5º (X e XII) e EC 115/2022</td><td>Intimidade, sigilo e proteção de dados</td><td>Base constitucional de toda a regulação de privacidade.</td></tr>
+<tr><td>Lei 8.078/1990 (CDC)</td><td>Relação de consumo</td><td>Vazamento que afeta clientes gera responsabilidade civil, além das sanções da LGPD.</td></tr>
+<tr><td>Leis 9.609/1998 e 9.610/1998</td><td>Software e direitos autorais</td><td>Licenciar software e respeitar licenças de código aberto.</td></tr>
+<tr><td>Lei 12.527/2011</td><td>Acesso à Informação</td><td>Transparência no setor público; classificação de informação sigilosa.</td></tr>
+<tr><td>Lei 12.737/2012 (Carolina Dieckmann)</td><td>Crimes informáticos</td><td>Invadir dispositivo alheio é crime (CP, art. 154-A). Registre e controle acessos.</td></tr>
+<tr><td>Lei 12.965/2014 (Marco Civil)</td><td>Direitos e deveres na internet</td><td>Guarda de logs de acesso, neutralidade da rede, responsabilidade de provedores.</td></tr>
+<tr><td>Lei 13.709/2018 (LGPD)</td><td>Dados pessoais</td><td>Principal lei de conformidade em TI.</td></tr>
+<tr><td>Lei 14.155/2021</td><td>Fraude eletrônica</td><td>Penas mais duras para invasão e fraude por meio digital.</td></tr>
+<tr><td>Resolução CMN 4.893/2021</td><td>Segurança cibernética financeira</td><td>Exigência para bancos e instituições autorizadas pelo Banco Central.</td></tr>
+<tr><td>Lei 15.211/2025 (ECA Digital)</td><td>Crianças e adolescentes online</td><td>Em vigor desde 17/03/2026 (seção 6).</td></tr>
+</table></div>
+</section>
+
+<section id="lgpd">
+<h2>3. LGPD (Lei 13.709/2018) em uma página</h2>
+<p>Regula <b>todo tratamento de dados pessoais</b>, físico ou digital, por empresas e poder público. Protege liberdade e privacidade.</p>
+<div class="tw"><table>
+<tr><th>Termo</th><th>Significado</th></tr>
+<tr><td>Dado pessoal</td><td>Informação de pessoa natural identificada ou identificável (nome, CPF, e-mail, IP, localização).</td></tr>
+<tr><td>Dado sensível</td><td>Saúde, biometria, dado genético, origem racial, religião, opinião política, sindicato, vida sexual. Proteção reforçada.</td></tr>
+<tr><td>Titular</td><td>A pessoa a quem os dados se referem.</td></tr>
+<tr><td>Controlador</td><td>Quem decide como e por que os dados são tratados.</td></tr>
+<tr><td>Operador</td><td>Quem trata os dados em nome do controlador.</td></tr>
+<tr><td>Encarregado (DPO)</td><td>Canal entre controlador, titulares e ANPD (art. 41).</td></tr>
+<tr><td>ANPD</td><td>Autoridade que fiscaliza, regulamenta e sanciona.</td></tr>
+</table></div>
+
+<h3>10 princípios (art. 6)</h3>
+<ul class="chips"><li>Finalidade</li><li>Adequação</li><li>Necessidade</li><li>Livre acesso</li><li>Qualidade dos dados</li><li>Transparência</li><li>Segurança</li><li>Prevenção</li><li>Não discriminação</li><li>Responsabilização e prestação de contas</li></ul>
+<p>Segurança e prevenção são o ponto de contato direto com a TI: medidas técnicas e administrativas contra acessos não autorizados e incidentes.</p>
+
+<h3>10 bases legais (art. 7)</h3>
+<p>Todo tratamento precisa de uma. <b>O consentimento é só uma delas.</b></p>
+<ul class="chips bases"><li>Consentimento</li><li>Obrigação legal ou regulatória</li><li>Políticas públicas</li><li>Estudos por órgão de pesquisa</li><li>Execução de contrato</li><li>Exercício regular de direitos em processo</li><li>Proteção da vida</li><li>Tutela da saúde</li><li>Legítimo interesse</li><li>Proteção do crédito</li></ul>
+
+<h3>Direitos do titular (art. 18)</h3>
+<p>Confirmação de tratamento, acesso, correção, anonimização, bloqueio ou eliminação, portabilidade, eliminação dos dados tratados com consentimento, informação sobre compartilhamento, informação sobre a possibilidade de não consentir e revogação do consentimento.</p>
+</section>
+
+<section id="incidentes">
+<h2>4. Incidente de segurança</h2>
+<div class="clock"><b>3</b><span><strong>dias úteis</strong> para avisar a ANPD e os titulares, contados de quando o controlador sabe que dados pessoais foram afetados (Resolução CD/ANPD 15/2024, que detalha o art. 48).</span></div>
+<ul class="ck">
+<li><b>Quando comunicar:</b> se o incidente puder causar risco ou dano relevante aos titulares.</li>
+<li><b>Complemento:</b> a comunicação complementar pode vir em até 20 dias úteis.</li>
+<li><b>Registro:</b> todo incidente, até os não comunicados, fica registrado por no mínimo 5 anos.</li>
+<li><b>Conteúdo:</b> natureza dos dados, titulares envolvidos, medidas de segurança, riscos, mitigação e motivo de eventual atraso.</li>
+</ul>
+<p>Para a TI: detecção, logs e plano de resposta documentado <b>antes</b> do incidente, porque 3 dias úteis passam rápido.</p>
+</section>
+
+<section id="sancoes">
+<h2>5. Sanções administrativas (art. 52)</h2>
+<p>Valem desde 1º de agosto de 2021. A ANPD aplica de forma isolada ou cumulativa, após processo com direito de defesa.</p>
+<div class="tw"><table>
+<tr><th>Tipo</th><th>Sanção</th></tr>
+<tr><td>Orientação</td><td>Advertência, com prazo para medidas corretivas</td></tr>
+<tr><td>Financeira</td><td>Multa simples de até 2% do faturamento da empresa no Brasil no último exercício (sem tributos), limitada a R$ 50 milhões por infração</td></tr>
+<tr><td>Financeira</td><td>Multa diária, com o mesmo limite total</td></tr>
+<tr><td>Reputação</td><td>Publicização da infração</td></tr>
+<tr><td>Dados</td><td>Bloqueio ou eliminação dos dados da infração</td></tr>
+<tr><td>Atividade</td><td>Suspensão parcial do banco de dados, suspensão ou proibição (parcial ou total) do tratamento</td></tr>
+</table></div>
+<div class="card"><b>Dosimetria:</b> a multa considera gravidade, boa-fé, vantagem obtida, condição econômica, reincidência, cooperação, boas práticas e governança, e pronta correção. <b>Ter programa de conformidade reduz a sanção.</b> Além disso, as sanções não excluem indenização civil nem outras leis, como o CDC.</div>
+</section>
+
+<section id="novidades">
+<h2>6. Novidades de 2026</h2>
+<div class="grid">
+<div class="card"><h3 style="margin-top:0">ANPD como agência</h3>A Lei 15.352/2026 transformou a ANPD em agência reguladora, com autonomia técnica. Ela fiscaliza também o ECA Digital. Em setembro de 2026 abriu consulta pública sobre fiscalização e processo sancionador.</div>
+<div class="card"><h3 style="margin-top:0">ECA Digital (Lei 15.211/2025)</h3>Regras para crianças e adolescentes em apps, jogos e redes. Em vigor desde 17/03/2026. Exige verificação de idade confiável e auditável (autodeclaração não basta), gestão de riscos, privacidade desde a concepção e proíbe loot boxes em jogos para esse público.</div>
+</div>
+<p>A agenda regulatória 2025-2026 da ANPD inclui normas sobre inteligência artificial e dados biométricos. Confira o site da ANPD no início de cada semestre.</p>
+</section>
+
+<section id="padroes">
+<h2>7. Padrões e auditoria</h2>
+<p>A lei diz o que é obrigatório; os padrões mostram como fazer.</p>
+<div class="tw"><table>
+<tr><th>Padrão</th><th>Para que serve</th></tr>
+<tr><td>ISO/IEC 27000 (27001, 27002)</td><td>Sistema de gestão de segurança (SGSI). A 27002 traz controles práticos; a 27701 trata de privacidade. No Brasil: NBR ISO/IEC.</td></tr>
+<tr><td>NIST (série 800)</td><td>Políticas e diretrizes gratuitas dos EUA; padrão de cibersegurança para infraestruturas críticas (2014).</td></tr>
+<tr><td>PCI-DSS</td><td>Obrigatório para quem processa, armazena ou transmite dados de cartões.</td></tr>
+<tr><td>OWASP (ASVS)</td><td>Segurança de aplicações web e APIs.</td></tr>
+<tr><td>ANSI, ITU-T, IEEE</td><td>Padrões gerais (ASCII, telecomunicações, Wi-Fi 802.11).</td></tr>
+</table></div>
+<h3>Auditoria (ciclo PDCA)</h3>
+<ul class="ck">
+<li><b>Três perguntas:</b> a medida está na política? É seguida na prática? Funciona como deveria?</li>
+<li><b>Independência:</b> o auditor nunca revisa o próprio trabalho (segregação de funções).</li>
+<li><b>Programa de revisão:</b> define escopo, critério, frequência e metodologia.</li>
+<li><b>Não conformidade:</b> o gerente responsável investiga as causas, age e verifica os resultados.</li>
+<li><b>Auditor externo:</b> acesso só ao necessário, acordo de confidencialidade e troca das senhas ao fim.</li>
+</ul>
+</section>
+
+<section id="pratica">
+<h2>8. Na prática</h2>
+<h3>Boas práticas para a TI</h3>
+<ul class="ck">
+<li>Mapear quais dados pessoais existem, onde ficam e com quem são compartilhados.</li>
+<li>Menor privilégio nos acessos e registro de quem acessou o quê.</li>
+<li>Criptografia, backups e gestão de vulnerabilidades.</li>
+<li>Política de proteção de dados conhecida por todos e encarregado designado.</li>
+<li>Plano de resposta a incidentes testado.</li>
+</ul>
+
+<h3>Caso: livraria Springbooks no Brasil</h3>
+<div class="card">A livraria abriu filial no Brasil, vende pelo site e cadastra clientes com CPF, endereço e histórico de compras. Um funcionário envia por engano uma planilha de clientes para um e-mail externo. Toque nas perguntas para ver as respostas.</div>
+<details><summary>1. Base legal para guardar dados de entrega? E para a newsletter?</summary><p>Entrega: execução de contrato (art. 7, V). Newsletter: consentimento (art. 7, I) ou legítimo interesse (art. 7, IX), se a loja comprovar o equilíbrio com os direitos do cliente.</p></details>
+<details><summary>2. A planilha enviada por engano é incidente? Quando comunicar?</summary><p>Sim, se expôs dados pessoais. Comunica-se à ANPD e aos titulares em 3 dias úteis se houver risco ou dano relevante. Em qualquer caso, registre por no mínimo 5 anos.</p></details>
+<details><summary>3. Quem é controlador e quem é operador com um sistema de e-mail marketing?</summary><p>A loja é a controladora; o fornecedor de e-mail marketing é o operador.</p></details>
+<details><summary>4. Três medidas técnicas e três organizacionais?</summary><p>Técnicas: criptografia, controle de acesso, logs. Organizacionais: política de proteção de dados, treinamento, encarregado designado.</p></details>
+<details><summary>5. Cliente pede eliminação do cadastro. O que está envolvido?</summary><p>Direitos de eliminação e de confirmação/acesso (art. 18). A loja precisa de política e procedimento para atender titulares, com prazo de resposta.</p></details>
+<details><summary>6. Por que trabalhar com assessoria jurídica? O que a política deve conter?</summary><p>Conformidade é campo especializado e as leis variam por país e setor. A política declara o cumprimento da lei e vem acompanhada de procedimentos, diretrizes e análise de riscos.</p></details>
+<details><summary>7. Cuidados com o auditor externo?</summary><p>Antes: limitar acesso ao necessário e assinar acordo de confidencialidade. Durante: restringir o acesso físico. Depois: trocar imediatamente as senhas fornecidas.</p></details>
+</section>
+
+<div class="note"><b>Aviso.</b> Este guia é material de estudo, não parecer jurídico. A tabela de leis (incluindo a Resolução CMN 4.893/2021) e os incisos X a XII do art. 52 vêm de conhecimento geral, sem consulta direta ao texto oficial. Confira os artigos no texto atualizado da lei, no Planalto, antes de usar em prova. Leis setoriais mudam rápido: consulte o jurídico.</div>
+<footer><p>Base: capítulo 18 (Conformidade) do material do professor, LGPD (Lei 13.709/2018), Resolução CD/ANPD 15/2024 e notícias sobre a ANPD e o ECA Digital, consultadas em 15/11/2026.</p></footer>
+</main>
+</body>
+</html>
